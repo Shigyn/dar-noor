@@ -26,7 +26,7 @@
     { id: 'brochettes', titre: 'Brochettes', panier: 'Brochette', sous: 'Prix à l’unité : composez votre assortiment.', plats: [
       { id: 'b-kefta', n: 'Kefta', d: '', p: 2.5, photo: 'kofta' },
       { id: 'b-agneau', n: 'Agneau', d: '', p: 2.5 },
-      { id: 'b-escalope-marinee', n: 'Escalope marinée', d: '', p: 2.5, photo: 'brochettes' },
+      { id: 'b-escalope-marinee', n: 'Escalope marinée', d: '', p: 2.5 },
       { id: 'b-foie', n: 'Foie', d: '', p: 2.5 },
       { id: 'b-escalope', n: 'Escalope', d: '', p: 2.5 },
       { id: 'b-boeuf', n: 'Bœuf mariné', d: '', p: 2.5 },
@@ -47,9 +47,12 @@
     ] },
     { id: 'frites', titre: 'Frites maison', panier: 'Frites,', plats: [
       { id: 'f-grande', n: 'Grande portion', d: '', p: 3.9, photo: 'frites' },
-      { id: 'f-petite', n: 'Petite portion', d: '', p: 2.9 }
+      { id: 'f-petite', n: 'Petite portion', d: '', p: 2.9, photo: 'frites' }
     ] }
   ];
+
+  // Chaque plat a sa photo : photos/plats/<id>.webp, sauf celles partagees avec le reste du site.
+  var photoDe = function (p) { return p.photo ? 'photos/' + p.photo + '.webp' : 'photos/plats/' + p.id + '.webp'; };
 
   var PLATS = {};
   CARTE.forEach(function (c) { c.plats.forEach(function (p) { PLATS[p.id] = p; p.np = c.panier ? c.panier + ' ' + p.n.charAt(0).toLowerCase() + p.n.slice(1) : p.n; }); });
@@ -65,7 +68,7 @@
     return '<section class="categorie" id="cat-' + c.id + '"><h3>' + esc(c.titre) + '</h3>' + (c.sous ? '<p>' + esc(c.sous) + '</p>' : '') +
       '<ul class="plats">' + c.plats.map(function (p) {
         return '<li><button type="button" class="plat" data-plat="' + p.id + '">' +
-          (p.photo ? '<img src="photos/' + p.photo + '.webp" alt="" loading="lazy" width="104" height="104">' : '') +
+          '<img src="' + photoDe(p) + '" alt="" loading="lazy" width="104" height="104">' +
           '<span class="plat-texte"><span class="plat-nom">' + esc(p.n) + '</span>' +
           (p.d ? '<span class="plat-desc">' + esc(p.d) + '</span>' : '') +
           '<span class="plat-bas"><span class="plat-prix">' + euros(p.p) + '</span><span class="plat-plus" aria-hidden="true">+</span></span></span></button></li>';
@@ -129,8 +132,7 @@
   function ouvrirFiche(id) {
     var p = PLATS[id]; platOuvert = p; qte = 1;
     var img = $('[data-fiche-photo]');
-    img.hidden = !p.photo;
-    if (p.photo) { img.src = 'photos/' + p.photo + '.webp'; img.alt = p.n; }
+    img.src = photoDe(p); img.alt = p.n;
     $('[data-fiche-titre]').textContent = p.n;
     $('[data-fiche-desc]').textContent = p.d;
     $('[data-fiche-groupes]').innerHTML = (p.groupes || []).map(function (g) {
