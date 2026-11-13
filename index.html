@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Restaurant","name":"Dar Noor","alternateName":"دار نور","servesCuisine":["Tunisienne","Grillades","Street food"],"telephone":"+33467708950","image":"https://shigyn.github.io/dar-noor/photos/hero.webp","url":"https://shigyn.github.io/dar-noor/","priceRange":"€","address":{"@type":"PostalAddress","streetAddress":"70 rue du Faubourg Boutonnet","addressLocality":"Montpellier","postalCode":"34090","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":43.6206174,"longitude":3.87312},"acceptsReservations":false,"hasMenu":"https://shigyn.github.io/dar-noor/#carte","aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"8","bestRating":"5"}}
 </script>
@@ -44,10 +44,11 @@
 </header>
 
 <main id="haut">
+  <div class="hero-fond">
   <section class="hero">
     <div class="hero-texte">
-      <p class="sur-titre">Spécialités tunisiennes · Grillades · Boutonnet</p>
-      <h1>Les brochettes tournent jusqu’à 1&nbsp;h du matin.</h1>
+      <p class="sur-titre">Spécialités tunisiennes · Grillades</p>
+      <h1>Le goût de la Tunisie, en plein <span class="accent">Boutonnet</span>.</h1>
       <p class="hero-chapo">Sandwichs, grillades, brochettes à l’unité, brick, tastira et salades tunisiennes. Commandez ici, on prépare, vous passez récupérer.</p>
       <div class="hero-actions">
         <a class="bouton" href="#carte">Commander à emporter</a>
@@ -59,6 +60,7 @@
       <img src="photos/hero.webp" alt="Brochettes marinées sur le grill" width="2000" height="1333" fetchpriority="high">
     </figure>
   </section>
+  </div>
 
   <section class="carte" id="carte" aria-labelledby="titre-carte">
     <div class="carte-tete">
@@ -69,6 +71,7 @@
     <div class="carte-corps" data-carte></div>
   </section>
 
+  <div class="maison-fond">
   <section class="maison" id="maison">
     <figure class="arche arche-porte">
       <img src="photos/porte.webp" alt="Porte bleue cloutée traditionnelle de Tunisie" width="1100" height="1650" loading="lazy">
@@ -80,6 +83,7 @@
       <p>Sur place pour une assiette entre amis, ou à emporter quand la soirée se prolonge : la cuisine tourne jusqu’à 1&nbsp;h.</p>
     </div>
   </section>
+  </div>
 
   <section class="infos" id="infos">
     <h2>Nous trouver</h2>

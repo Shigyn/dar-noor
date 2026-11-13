@@ -2,7 +2,8 @@
    harissa pour l'action. Signature : la photo dans une arche cloutee. */
 :root {
   --chaux: #ffffff;
-  --mur: #f2f5f9;          /* blanc bleute, pas creme */
+  --mur: #e9f1fb;          /* bleu tres pale, comme un mur a la chaux bleutee */
+  --sable: #fdf3df;        /* safran tres pale */
   --encre: #0d1b2e;
   --gris: #5a6678;
   --bleu: #0f4c8a;
@@ -56,8 +57,10 @@ h2 { font-size: clamp(2rem, 4.4vw, 3.1rem); }
   border: 6px dotted rgba(243,182,63,.85); }
 
 /* ---------- hero ---------- */
+.hero-fond { background: radial-gradient(60% 70% at 0% 0%, var(--sable) 0%, transparent 70%), radial-gradient(50% 60% at 100% 100%, #e3eefb 0%, transparent 70%); }
 .hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(24px, 5vw, 72px); align-items: center; padding: clamp(28px, 6vw, 80px) clamp(16px, 5vw, 64px) clamp(40px, 7vw, 96px); max-width: 1320px; margin: 0 auto; }
 .hero h1 { font-size: clamp(2.4rem, 5.6vw, 4.6rem); color: var(--encre); }
+.accent { color: var(--bleu); background: linear-gradient(transparent 68%, rgba(243,182,63,.45) 68%, rgba(243,182,63,.45) 92%, transparent 92%); }
 .hero-chapo { max-width: 36ch; margin: 1.3rem 0 2rem; font-size: 1.15rem; color: var(--gris); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
 .hero-note { margin: 1.6rem 0 0; font-size: .92rem; color: var(--gris); }
@@ -74,7 +77,8 @@ h2 { font-size: clamp(2rem, 4.4vw, 3.1rem); }
 .onglets a.actif { background: var(--bleu); border-color: var(--bleu); color: #fff; }
 .carte-corps { max-width: 1180px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 48px); }
 .categorie { padding-top: 2.6rem; }
-.categorie h3 { font-size: 1.7rem; color: var(--bleu); }
+.categorie h3 { display: flex; align-items: center; gap: .6rem; font-size: 1.7rem; color: var(--bleu); }
+.categorie h3::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--safran); box-shadow: 0 0 0 4px rgba(243,182,63,.22); }
 .categorie > p { margin: .3rem 0 0; color: var(--gris); }
 .plats { list-style: none; margin: 1.3rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
 .plat { display: flex; gap: 14px; align-items: stretch; width: 100%; padding: 12px; border: 1px solid var(--trait); border-radius: var(--rayon); background: #fff; text-align: left; font: inherit; color: inherit; cursor: pointer; transition: border-color .15s, box-shadow .15s; }
@@ -85,9 +89,11 @@ h2 { font-size: clamp(2rem, 4.4vw, 3.1rem); }
 .plat-desc { margin: .2rem 0 .6rem; color: var(--gris); font-size: .88rem; line-height: 1.45; }
 .plat-bas { margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
 .plat-prix { font-weight: 800; color: var(--harissa); font-variant-numeric: tabular-nums; }
-.plat-plus { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--bleu); color: #fff; font-size: 1.3rem; line-height: 1; }
+.plat:hover .plat-plus { background: var(--harissa); }
+.plat-plus { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--bleu); transition: background .15s; color: #fff; font-size: 1.3rem; line-height: 1; }
 
 /* ---------- la maison ---------- */
+.maison-fond { background: linear-gradient(180deg, #fff 0%, var(--sable) 100%); }
 .maison { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 6vw, 88px); align-items: center; max-width: 1180px; margin: 0 auto; padding: clamp(56px, 8vw, 112px) clamp(16px, 4vw, 48px); }
 .arche-porte { aspect-ratio: 2 / 3; max-width: 420px; }
 .maison-texte p { max-width: 58ch; color: var(--gris); font-size: 1.05rem; }
