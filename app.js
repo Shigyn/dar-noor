@@ -3,42 +3,56 @@
 (function () {
   'use strict';
 
-  var PIQUANT = { id: 'piquant', titre: 'Harissa ?', min: 1, max: 1, options: ['Sans', 'Un peu', 'Bien relevé'] };
-  var VIANDE = function (opts) { return { id: 'viande', titre: 'Viande au choix', min: 1, max: 1, options: opts }; };
+  // La carte du restaurant (photo du menu, 13/11). Seul ajout : « Harissa ? » sur les sandwichs.
+  var PIQUANT = { id: 'piquant', titre: 'Harissa ?', min: 1, max: 1, options: ['Sans', 'Avec'] };
+  var BROCHETTE = { id: 'brochette', titre: 'Quelle brochette ?', min: 1, max: 1, options: ['Kefta', 'Agneau', 'Escalope marinée', 'Foie', 'Escalope', 'Bœuf mariné', 'Merguez'] };
 
   var CARTE = [
-    { id: 'sandwichs', titre: 'Sandwichs', sous: 'Dans la galette ou le pain maison, avec frites dedans si vous voulez.', plats: [
-      { id: 'makloub', n: 'Makloub', d: 'Galette pliée à la main, viande au choix, fromage, salade, frites et sauce.', p: 8.5, photo: 'makloub', groupes: [VIANDE(['Escalope', 'Viande hachée', 'Merguez', 'Thon']), PIQUANT] },
-      { id: 'chapati', n: 'Chapati tunisien', d: 'Pain feuilleté doré, œuf, fromage fondu, pommes de terre.', p: 7.5, groupes: [VIANDE(['Thon', 'Escalope', 'Viande hachée']), PIQUANT] },
-      { id: 'baguette', n: 'Baguette farcie', d: 'Salade méchouia, thon, œuf, olives, pommes de terre.', p: 7, groupes: [PIQUANT] },
-      { id: 'fricasse', n: 'Fricassés ×3', d: 'Petits pains frits garnis de thon, œuf, olives et méchouia.', p: 5, groupes: [PIQUANT] }
+    { id: 'sandwichs', titre: 'Sandwichs', panier: 'Sandwich', plats: [
+      { id: 's-brochettes', n: 'Brochettes au choix', d: '', p: 7.9, groupes: [BROCHETTE, PIQUANT] },
+      { id: 's-kefta', n: 'Kefta', d: '', p: 7.9, groupes: [PIQUANT] },
+      { id: 's-bavette', n: 'Bavette', d: '', p: 8.5, groupes: [PIQUANT] },
+      { id: 's-merguez', n: 'Merguez', d: '', p: 7.9, groupes: [PIQUANT] },
+      { id: 's-poulet', n: 'Cuisse de poulet désossée', d: '', p: 7.5, groupes: [PIQUANT] }
     ] },
-    { id: 'grillades', titre: 'Grillades au charbon', sous: 'Servies avec frites, salade tunisienne et pain.', plats: [
-      { id: 'br-poulet', n: 'Brochettes de poulet', d: 'Trois brochettes marinées au citron, ail et épices.', p: 12.9, photo: 'brochettes', groupes: [PIQUANT] },
-      { id: 'kefta', n: 'Kefta', d: 'Viande hachée au persil et au cumin, grillée sur la braise.', p: 13.5, photo: 'kofta', groupes: [PIQUANT] },
-      { id: 'br-agneau', n: 'Brochettes d’agneau', d: 'Agneau mariné, oignons grillés.', p: 15.9, groupes: [PIQUANT] },
-      { id: 'mixte', n: 'Assiette mixte', d: 'Poulet, kefta et merguez : pour les grosses faims.', p: 17.9, photo: 'assiette', groupes: [PIQUANT] }
+    { id: 'grillades', titre: 'Plats grillades', panier: 'Plat', plats: [
+      { id: 'g-mixte', n: 'Grillade mixte', d: '', p: 11.9, photo: 'assiette' },
+      { id: 'g-bavette', n: 'Bavette', d: '', p: 12.9 },
+      { id: 'g-entrecote', n: 'Entrecôte', d: '', p: 14.9 },
+      { id: 'g-veau', n: 'Côte de veau', d: '', p: 13.9 },
+      { id: 'g-agneau', n: 'Côtelettes d’agneau', d: '', p: 13.5 },
+      { id: 'g-poulet', n: 'Cuisse de poulet désossée', d: '', p: 10.9 }
     ] },
-    { id: 'plats', titre: 'Plats', plats: [
-      { id: 'ojja', n: 'Ojja merguez', d: 'Œufs pochés dans une sauce tomate, poivrons et harissa, avec du pain.', p: 11.5, photo: 'ojja', groupes: [PIQUANT] },
-      { id: 'couscous', n: 'Couscous au poulet', d: 'Semoule fine, légumes, pois chiches et bouillon relevé.', p: 13.9, photo: 'couscous', groupes: [PIQUANT] }
+    { id: 'brochettes', titre: 'Brochettes', panier: 'Brochette', sous: 'Prix à l’unité : composez votre assortiment.', plats: [
+      { id: 'b-kefta', n: 'Kefta', d: '', p: 2.5, photo: 'kofta' },
+      { id: 'b-agneau', n: 'Agneau', d: '', p: 2.5 },
+      { id: 'b-escalope-marinee', n: 'Escalope marinée', d: '', p: 2.5, photo: 'brochettes' },
+      { id: 'b-foie', n: 'Foie', d: '', p: 2.5 },
+      { id: 'b-escalope', n: 'Escalope', d: '', p: 2.5 },
+      { id: 'b-boeuf', n: 'Bœuf mariné', d: '', p: 2.5 },
+      { id: 'b-merguez', n: 'Merguez', d: '', p: 2.5 },
+      { id: 'b-poulet', n: 'Cuisse de poulet désossée', d: '', p: 3.9 }
     ] },
-    { id: 'entrees', titre: 'Entrées et à côté', plats: [
-      { id: 'brik', n: 'Brik à l’œuf', d: 'Feuille croustillante, œuf coulant, thon, persil, câpres.', p: 4 },
-      { id: 'salade-tn', n: 'Salade tunisienne', d: 'Tomate, concombre, oignon, poivron, thon, œuf et olives.', p: 6 },
-      { id: 'mechouia', n: 'Salade méchouia', d: 'Poivrons et tomates grillés, écrasés à l’ail et à l’huile d’olive.', p: 6 },
-      { id: 'frites', n: 'Frites', d: 'Maison, croustillantes.', p: 3.5, photo: 'frites' }
+    { id: 'assiettes', titre: 'Assiettes', plats: [
+      { id: 'a-brick', n: 'Brick', d: '', p: 5.9 },
+      { id: 'a-tastira', n: 'Tastira', d: '', p: 5.9 },
+      { id: 'a-shakshouka', n: 'Shakshouka', d: '', p: 5.9, photo: 'ojja' }
     ] },
-    { id: 'douceurs', titre: 'Douceurs et boissons', plats: [
-      { id: 'bambalouni', n: 'Bambalouni', d: 'Le beignet tunisien, chaud et sucré.', p: 3, photo: 'bambalouni' },
-      { id: 'the', n: 'Thé à la menthe aux pignons', d: 'Comme à Sidi Bou Saïd.', p: 2.5 },
-      { id: 'citronnade', n: 'Citronnade maison', d: 'Citron pressé, fleur d’oranger.', p: 3.5 },
-      { id: 'canette', n: 'Canette 33 cl', d: '', p: 2, groupes: [{ id: 'boisson', titre: 'Laquelle ?', min: 1, max: 1, options: ['Coca-Cola', 'Coca zéro', 'Fanta', 'Oasis', 'Eau plate', 'Eau gazeuse'] }] }
+    { id: 'salades', titre: 'Salades', panier: 'Salade', plats: [
+      { id: 'sa-tunisienne', n: 'Tunisienne', d: '', p: 4 },
+      { id: 'sa-houria', n: 'Houria', d: '', p: 3 },
+      { id: 'sa-mechouia', n: 'Méchouia', d: '', p: 4.5 },
+      { id: 'sa-mixte', n: 'Mixte', d: '', p: 4 },
+      { id: 'sa-verte', n: 'Verte', d: '', p: 3 }
+    ] },
+    { id: 'frites', titre: 'Frites maison', panier: 'Frites,', plats: [
+      { id: 'f-grande', n: 'Grande portion', d: '', p: 3.9, photo: 'frites' },
+      { id: 'f-petite', n: 'Petite portion', d: '', p: 2.9 }
     ] }
   ];
 
   var PLATS = {};
-  CARTE.forEach(function (c) { c.plats.forEach(function (p) { PLATS[p.id] = p; }); });
+  CARTE.forEach(function (c) { c.plats.forEach(function (p) { PLATS[p.id] = p; p.np = c.panier ? c.panier + ' ' + p.n.charAt(0).toLowerCase() + p.n.slice(1) : p.n; }); });
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -82,7 +96,7 @@
   function garder() { try { localStorage.setItem(CLE, JSON.stringify(panier)); } catch (e) {} }
   function totalPanier() { return panier.reduce(function (t, l) { return t + PLATS[l.id].p * l.qte; }, 0); }
   function nbPanier() { return panier.reduce(function (t, l) { return t + l.qte; }, 0); }
-  function detail(l) { return Object.keys(l.choix || {}).map(function (k) { var v = l.choix[k]; return k === 'piquant' ? (v === 'Sans' ? 'sans harissa' : 'harissa : ' + v.toLowerCase()) : v; }).join(', '); }
+  function detail(l) { return Object.keys(l.choix || {}).map(function (k) { var v = l.choix[k]; return k === 'piquant' ? (v === 'Sans' ? 'sans harissa' : 'avec harissa') : v; }).join(', '); }
 
   function rendrePanier() {
     var n = nbPanier(), t = euros(totalPanier());
@@ -94,7 +108,7 @@
     $('[data-commande]').hidden = !n;
     $('[data-lignes]').innerHTML = panier.map(function (l, i) {
       var p = PLATS[l.id], d = detail(l);
-      return '<li><span class="ligne-nom">' + l.qte + ' × ' + esc(p.n) + '</span><span class="ligne-prix">' + euros(p.p * l.qte) + '</span>' +
+      return '<li><span class="ligne-nom">' + l.qte + ' × ' + esc(p.np) + '</span><span class="ligne-prix">' + euros(p.p * l.qte) + '</span>' +
         '<span class="ligne-detail">' + esc(d) + '</span><span class="ligne-actions">' +
         '<button type="button" data-ligne-moins="' + i + '" aria-label="Un ' + esc(p.n) + ' de moins">−</button>' +
         '<button type="button" data-ligne-plus="' + i + '" aria-label="Un ' + esc(p.n) + ' de plus">+</button></span></li>';
