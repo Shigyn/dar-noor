@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Apercu : a retirer a la mise en ligne, avec sitemap, mentions legales, mesure.js et le lien LocWeb. -->
+<meta name="robots" content="noindex, nofollow">
+<title>Dar Noor : grillades et street food tunisienne à Montpellier, Boutonnet</title>
+<meta name="description" content="Brochettes au feu, makloub, chapati, brik et salade tunisienne au 70 rue du Faubourg Boutonnet, Montpellier. Commandez en ligne et récupérez sur place, jusqu’à 1 h.">
+<meta name="theme-color" content="#0f4c8a">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Dar Noor : street food tunisienne à Montpellier">
+<meta property="og:description" content="Brochettes, makloub, brik, salade tunisienne. Commande en ligne, à récupérer rue du Faubourg Boutonnet.">
+<meta property="og:image" content="https://shigyn.github.io/dar-noor/photos/hero.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M4 32V14a12 12 0 0 1 24 0v18z' fill='%230f4c8a'/%3E%3Ccircle cx='16' cy='15' r='3' fill='%23f3b63f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"Dar Noor","alternateName":"دار نور","servesCuisine":["Tunisienne","Grillades","Street food"],"telephone":"+33467708950","image":"https://shigyn.github.io/dar-noor/photos/hero.webp","url":"https://shigyn.github.io/dar-noor/","priceRange":"€","address":{"@type":"PostalAddress","streetAddress":"70 rue du Faubourg Boutonnet","addressLocality":"Montpellier","postalCode":"34090","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":43.6206174,"longitude":3.87312},"acceptsReservations":false,"hasMenu":"https://shigyn.github.io/dar-noor/#carte","aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"8","bestRating":"5"}}
+</script>
+</head>
+<body>
+<header class="tete">
+  <a class="marque" href="#haut" aria-label="Dar Noor, accueil">
+    <span class="marque-latin">Dar Noor</span>
+    <span class="marque-arabe" lang="ar" dir="rtl">دار نور</span>
+  </a>
+  <nav class="menu" aria-label="Menu">
+    <a href="#carte">La carte</a>
+    <a href="#maison">La maison</a>
+    <a href="#infos">Nous trouver</a>
+  </nav>
+  <a class="tete-tel" href="tel:+33467708950" aria-label="Appeler le 04 67 70 89 50">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5 9 3l1.8 4.3-2 1.5a11 11 0 0 0 6.4 6.4l1.5-2L21 15l-.5 2.4A3 3 0 0 1 17.6 20 14.6 14.6 0 0 1 4 6.4a3 3 0 0 1 2.6-2.9Z" fill="currentColor"/></svg>
+    <span>04 67 70 89 50</span>
+  </a>
+  <button type="button" class="tete-panier" data-ouvrir-panier aria-label="Voir le panier">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Zm3 0a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    <span data-compte>0</span>
+  </button>
+</header>
+
+<main id="haut">
+  <section class="hero">
+    <div class="hero-texte">
+      <p class="sur-titre">Cuisine tunisienne · Boutonnet, Montpellier</p>
+      <h1>Les brochettes sortent du feu jusqu’à 1&nbsp;h du matin.</h1>
+      <p class="hero-chapo">Makloub, chapati, brik à l’œuf, salade tunisienne et grillades au charbon. Commandez ici, on prépare, vous passez récupérer.</p>
+      <div class="hero-actions">
+        <a class="bouton" href="#carte">Commander à emporter</a>
+        <a class="bouton bouton-ligne" href="tel:+33467708950">Appeler</a>
+      </div>
+      <p class="hero-note"><span class="etoiles" aria-hidden="true">★★★★★</span> 5/5 sur Google · 70 rue du Faubourg Boutonnet</p>
+    </div>
+    <figure class="arche arche-hero">
+      <img src="photos/hero.webp" alt="Brochettes de poulet marinées sur le grill au charbon" width="2000" height="1333" fetchpriority="high">
+    </figure>
+  </section>
+
+  <section class="carte" id="carte" aria-labelledby="titre-carte">
+    <div class="carte-tete">
+      <h2 id="titre-carte">La carte</h2>
+      <p>Tout est préparé à la commande. Harissa maison sur demande.</p>
+    </div>
+    <nav class="onglets" aria-label="Catégories de la carte" data-onglets></nav>
+    <div class="carte-corps" data-carte></div>
+  </section>
+
+  <section class="maison" id="maison">
+    <figure class="arche arche-porte">
+      <img src="photos/porte.webp" alt="Porte bleue cloutée traditionnelle de Tunisie" width="1100" height="1650" loading="lazy">
+    </figure>
+    <div class="maison-texte">
+      <p class="sur-titre">« Dar Noor », la maison de la lumière</p>
+      <h2>Comme à Tunis, en bas de chez vous.</h2>
+      <p>Une petite adresse de quartier où l’on mange comme au pays : le makloub plié à la main, la brik qu’on croque encore chaude, les brochettes marinées la veille et la harissa qu’on pose à côté, pour ceux qui osent.</p>
+      <p>Sur place pour une assiette entre amis, ou à emporter quand la soirée se prolonge : la cuisine tourne jusqu’à 1&nbsp;h.</p>
+    </div>
+  </section>
+
+  <section class="infos" id="infos">
+    <h2>Nous trouver</h2>
+    <div class="infos-grille">
+      <div class="info">
+        <h3>Adresse</h3>
+        <p>70 rue du Faubourg Boutonnet<br>34090 Montpellier</p>
+        <a class="lien" href="https://www.google.com/maps/dir/?api=1&destination=Dar+Noor+70+rue+du+Faubourg+Boutonnet+34090+Montpellier" target="_blank" rel="noopener">Itinéraire</a>
+      </div>
+      <div class="info">
+        <h3>Horaires</h3>
+        <p>Service jusqu’à 1&nbsp;h du matin</p>
+        <p class="discret">Sur place ou à emporter</p>
+      </div>
+      <div class="info">
+        <h3>Téléphone</h3>
+        <p><a class="tel" href="tel:+33467708950">04 67 70 89 50</a></p>
+        <p class="discret">Pour une grosse commande, appelez-nous.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <p><span class="marque-latin">Dar Noor</span> · 70 rue du Faubourg Boutonnet, 34090 Montpellier</p>
+</footer>
+
+<!-- Barre panier (mobile surtout) -->
+<button type="button" class="barre-panier" data-ouvrir-panier data-barre hidden>
+  <span><strong data-compte>0</strong> article<span data-pluriel>s</span></span>
+  <span>Voir le panier · <strong data-total>0,00 €</strong></span>
+</button>
+
+<!-- Fiche d'un plat -->
+<dialog class="fiche" data-fiche aria-labelledby="fiche-titre">
+  <form method="dialog" class="fiche-corps" data-fiche-form>
+    <button class="fermer" value="annuler" aria-label="Fermer">×</button>
+    <img class="fiche-photo" data-fiche-photo alt="">
+    <h3 id="fiche-titre" data-fiche-titre></h3>
+    <p class="fiche-desc" data-fiche-desc></p>
+    <div data-fiche-groupes></div>
+    <div class="fiche-pied">
+      <div class="quantite">
+        <button type="button" data-moins aria-label="Un de moins">−</button>
+        <output data-qte>1</output>
+        <button type="button" data-plus aria-label="Un de plus">+</button>
+      </div>
+      <button type="button" class="bouton" data-ajouter>Ajouter · <span data-fiche-prix></span></button>
+    </div>
+  </form>
+</dialog>
+
+<!-- Panier et commande -->
+<dialog class="panier" data-panier aria-labelledby="panier-titre">
+  <div class="panier-corps">
+    <button class="fermer" type="button" data-fermer-panier aria-label="Fermer">×</button>
+    <h3 id="panier-titre">Votre commande</h3>
+    <ul class="panier-lignes" data-lignes></ul>
+    <p class="vide" data-vide>Votre panier est vide. Choisissez un plat dans la carte.</p>
+    <form class="commande" data-commande hidden>
+      <fieldset class="mode">
+        <legend>Comment ?</legend>
+        <label><input type="radio" name="mode" value="emporter" checked> À emporter</label>
+        <label><input type="radio" name="mode" value="place"> Sur place</label>
+      </fieldset>
+      <label>Prénom <input name="prenom" autocomplete="given-name" required minlength="2"></label>
+      <label>Téléphone <input name="tel" type="tel" autocomplete="tel" required inputmode="tel" placeholder="06 12 34 56 78"></label>
+      <label>Heure de retrait <select name="heure" data-heures></select></label>
+      <div class="total"><span>Total</span><strong data-total>0,00 €</strong></div>
+      <button class="bouton bouton-plein" type="submit">Payer et envoyer en cuisine</button>
+      <p class="discret">Paiement sécurisé par carte, Apple Pay ou Google Pay.</p>
+    </form>
+  </div>
+</dialog>
+
+<!-- Message de l'apercu -->
+<dialog class="apercu" data-apercu aria-labelledby="apercu-titre">
+  <div class="apercu-corps">
+    <h3 id="apercu-titre">C’est ici que la commande part en cuisine</h3>
+    <p>Ceci est un aperçu : rien n’est encaissé ni envoyé.</p>
+    <p>Sur votre vrai site, le client paie par carte, Apple Pay ou Google Pay. La commande s’affiche aussitôt sur la tablette en cuisine avec une sonnerie, et le ticket s’imprime. Le client suit sa commande en direct sur son téléphone.</p>
+    <p>Depuis votre espace, vous changez vous-même vos prix, vos photos, les plats épuisés du jour et vos horaires.</p>
+    <form method="dialog"><button class="bouton">Compris</button></form>
+  </div>
+</dialog>
+
+<script src="app.js?v=1" defer></script>
+</body>
+</html>
